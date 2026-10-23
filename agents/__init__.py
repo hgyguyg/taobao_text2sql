@@ -1,12 +1,3 @@
-import os
-from dotenv import load_dotenv
-
-from langchain_qwq import ChatQwen
-
-load_dotenv()
-
-model = ChatQwen(
-    model= "qwen-max",
-    api_key= os.getenv("OPENAI_API_KEY"),
-    base_url= os.getenv("BASE_URL")
-)
+from sql_checker import get_agent_2
+from sql_generator import get_agent_1
+__all__ = ["get_agent_1","get_agent_2"]
