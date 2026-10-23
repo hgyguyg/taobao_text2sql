@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-path = os.getenv("PATH")
+path = os.getenv("DATA_PATH")
 
 def general_connection():
     return duckdb.connect()
@@ -19,10 +19,10 @@ def run_sql(sql:str,max_rows: int = 100):
 
     return df.to_string()
 
-def check_sql(sql:str):
+def db_check_sql(sql:str):
     con = general_connection()
     try:
         con.execute(f"EXPLAIN {sql}")
-        return "true"
+        return True,""
     except Exception as e:
-        return f"false\n报错信息：{e}"
+        return False,f"{e}"
