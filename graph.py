@@ -140,7 +140,8 @@ def node_analyze(state: AgentState):
         }
 
     if not sufficient and requery_question:
-        if _lex_dup(_normalize_question(requery_question), _normalize_question(original)):
+        seen = {_normalize_question(e.get("question", "")) for e in evidence}
+        if any(_lex_dup(_normalize_question(requery_question), q) for q in seen) or _lex_dup(_normalize_question(requery_question),_normalize_question(original)):
             return {
                 "sufficient": True,
                 "analysis": answer or "补充查询与已执行查询重复，改用已有证据回答",
