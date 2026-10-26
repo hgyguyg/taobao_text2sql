@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 from langchain_qwq import ChatQwen
 
@@ -12,5 +13,6 @@ model = ChatQwen(
     temperature=0
 )
 
-DATA_PATH = r"C:\Users\33062\PycharmProjects\taobao_text2sql\data\tianchi_mobile_recommend_train_user.csv"
+CHART_DIR= Path("./charts")
+DATA_PATH = "./data/tianchi_mobile_recommend_train_user"
 TABLE = f"read_csv_auto('{DATA_PATH}')"
