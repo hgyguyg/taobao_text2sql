@@ -1,6 +1,8 @@
 from config import TABLE
 from utils.DuckDB import scalar, run_sql
 
+OVERVIEW_CACHE = None
+
 def _fmt(value, default: str = "未知") -> str:
     if value is None:
         return default
