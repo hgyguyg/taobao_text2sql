@@ -35,7 +35,20 @@ class Visualizer:
             "query_result": query_result,
             "analysis": analysis
         })
+
         parsed = data["parsed"]
+
+        if parsed is None:
+            return {
+                "chart_type": "none",
+                "title": "查询结果",
+                "x_field": "",
+                "y_field": "",
+                "x_label": "",
+                "y_label": "",
+                "reason": "图表规格解析失败，跳过绘图"
+            }
+
         return{
             "chart_type": parsed.chart_type,
             "title": parsed.title,
