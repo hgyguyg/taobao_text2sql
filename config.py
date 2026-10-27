@@ -14,5 +14,5 @@ model = ChatQwen(
 )
 
 CHART_DIR= Path("./charts")
-DATA_PATH = "./data/tianchi_mobile_recommend_train_user"
+DATA_PATH = "./data/tianchi_mobile_recommend_train_user.csv"
 TABLE = f"read_csv_auto('{DATA_PATH}')"
