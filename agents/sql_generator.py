@@ -49,11 +49,11 @@ class SQLGenerator:
         if history:
             for id,evidence in enumerate(history,start=1):
                 history_block += f"已有结果：{id}\n"
-                history_block += f"查询问题：{evidence.get(question,"")}\n"
+                history_block += f"查询问题：{evidence.get('question', '')}\n"
                 if evidence.get("failed"):
                     history_block += "执行失败"
                 else:
-                    result = str(evidence.get(result,""))
+                    result = str(evidence.get("result", ""))
                     if len(result) > 1000:
                         result = result[:1000]
                         history_block += result
